@@ -10,6 +10,23 @@ Learning repo: a frontend developer learning Node by building a mini shop. Domai
 - English only in everything that is stored: files in this repo, GitHub issues, PRs, commit messages, branch names. Chat explanations may be in Russian.
 - One branch + PR per ticket, PR body ends with `Closes #N`.
 
+## Ticket workflow
+
+Tickets are GitHub issues #17–#30 (spec is #16), worked in order of their "Blocked by" edges. When Andrew says "start #N":
+
+1. Read the issue (`gh issue view N`). `main` must be up to date; branch `N-short-slug` from it.
+2. Move the card to In Progress on the board (see below).
+3. For tickets before the Cart (#27): write failing tests on the branch and commit them. Tell Andrew the file and export names the tests fix.
+4. In chat, give theory + a neighbouring example for each task point. Then review what he writes: run test, typecheck, lint, format:check and read the code before answering.
+5. He commits, or asks Claude to commit, push and open the PR (`Closes #N` in the body). He merges.
+6. After the merge: pull `main`, move the card to Done.
+
+Board: GitHub Project 4 of `andrew-chernous` (needs `gh` logged in with the `project` scope).
+
+- Item id for an issue: `gh project item-list 4 --owner andrew-chernous --format json --limit 50`
+- Move: `gh project item-edit --project-id PVT_kwHOAJywls4Bq-Jb --id <item-id> --field-id PVTSSF_lAHOAJywls4Bq-JbzhpS4GE --single-select-option-id <option>`
+- Status options: Todo `f75ad846`, In Progress `47fc9ee4`, Done `98236657`
+
 ## Commands
 
 - `pnpm dev` (web :5173 + api :3000), `pnpm db:up` (Postgres on host port 5433)
