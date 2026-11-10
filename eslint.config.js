@@ -18,5 +18,15 @@ export default tseslint.config(
     files: ['apps/api/**/*.ts', '*.js'],
     languageOptions: { globals: globals.node },
   },
+  {
+    // Express tells an error handler from ordinary middleware by its four
+    // parameters, so an unused `_next` has to stay in the signature.
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_' },
+      ],
+    },
+  },
   prettier,
 );
