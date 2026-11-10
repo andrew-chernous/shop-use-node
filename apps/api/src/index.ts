@@ -1,7 +1,16 @@
 import { createApp } from './app.ts';
+import { parseConfig } from './config.ts';
+import type { Config } from './config.ts';
 
-const DEFAULT_API_PORT = 3000;
-const port = Number(process.env.PORT ?? DEFAULT_API_PORT);
+let config: Config;
+try {
+  config = parseConfig(process.env);
+} catch (err) {
+  console.error(err instanceof Error ? err.message : err);
+  process.exit(1);
+}
+
+const port = config.PORT;
 
 createApp().listen(port, () => {
   console.log(`API listening on http://localhost:${port}`);
