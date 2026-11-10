@@ -7,7 +7,7 @@ Learning repo: a frontend developer learning Node by building a mini shop. Domai
 - **Andrew writes everything in `apps/api`** (server code, and from the Cart ticket on, its tests). Do not write it for him, even when asked to "implement" a ticket — give theory and examples, then review what he wrote.
 - **Claude writes** `apps/web`, configs, and the API tests for the tickets before the Cart ticket.
 - Before each point of a ticket: a short theory note plus an example on a _neighbouring_ problem, never the ticket's own solution.
-- Tickets and explanations are in Russian. Code, comments, commit messages and branch names are in English.
+- English only in everything that is stored: files in this repo, GitHub issues, PRs, commit messages, branch names. Chat explanations may be in Russian.
 - One branch + PR per ticket, PR body ends with `Closes #N`.
 
 ## Commands
